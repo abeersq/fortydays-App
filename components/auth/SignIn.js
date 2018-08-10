@@ -23,14 +23,7 @@ export default class App extends React.Component {
       })
       .catch(err => console.log("error signing in!: ", err));
   }
-  confirmSignIn() {
-    Auth.confirmSignIn(this.state.user, this.state.confirmationCode)
-      .then(() => {
-        console.log("successful confirm sign in!");
-        this.props.screenProps.authenticate(true);
-      })
-      .catch(err => console.log("error confirming signing in!: ", err));
-  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -45,7 +38,11 @@ export default class App extends React.Component {
           secureTextEntry={true}
           placeholder="password"
         />
-        <Button title="Sign In" onPress={this.signIn.bind(this)} />
+        <Button
+          title="Sign In"
+          onPress={this.signIn.bind(this)}
+          style={styles.Button}
+        />
       </View>
     );
   }
@@ -57,6 +54,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: "#2196F3",
     margin: 10
+  },
+  Button: {
+    width: 50
   },
   container: {
     flex: 1,
