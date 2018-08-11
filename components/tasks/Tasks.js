@@ -1,21 +1,17 @@
 import * as React from 'react';
 import { Text, View, StyleSheet,  ScrollView} from 'react-native';
 import { Constants } from 'expo';
-import { Card } from 'react-native-elements';
-import { StackNavigator } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation';
 import { ListItem } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 
 export default class Tasks extends React.Component {
   render() {
     return (
           <ScrollView>
-
       <View>
         <Text
           style={{
             marginTop: '10%',
-            
             fontSize: 20,
             fontWeight: 'bold',
             textAlignVertical: 'center',
@@ -102,6 +98,14 @@ export default class Tasks extends React.Component {
           }
         />
       </View>
+
+      <Button
+               style={{ marginTop: '10%' , alignSelf: 'flex-end'}}
+                  title=" القائمة الرئيسية "
+                  color="white"
+                  backgroundColor="blue"
+                  onPress={() =>{}}     
+                             /> 
       </ScrollView>
 
 
