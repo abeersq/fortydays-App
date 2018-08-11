@@ -11,7 +11,7 @@ export default class Menu1 extends Component {
             buttonStyle={{ marginTop: "5%" }}
             backgroundColor="blue"
             title="بيانات المستخدم"
-            onPress={() => this.props.navigation.navigate("profile")}
+            onPress={() => this.props.navigation.navigate("header")}
           />
           <Button
             buttonStyle={{ marginTop: "5%" }}
@@ -31,12 +31,6 @@ export default class Menu1 extends Component {
             backgroundColor="blue"
             onPress={() => this.props.navigation.navigate("sendtask")}
           />
-          {/* <Button
-            buttonStyle={{ marginTop: "5%" }}
-            title="تسجيل الخروج"
-            backgroundColor="blue"
-            onPress={() => this.props.navigation.navigate("/")}
-          /> */}
         </View>
       </View>
     );
