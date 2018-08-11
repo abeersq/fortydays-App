@@ -26,7 +26,7 @@ export default class Course extends React.Component {
 </Text>
               <Image
                 style={styles.logo}
-                source={require('../assets/images-2.png')}
+                source={require('../Icons/images-2.png')}
               />
           
             <View style={{ flexDirection: 'row' }}>
@@ -46,7 +46,7 @@ export default class Course extends React.Component {
  </Text>
               <Image
                 style={styles.logo}
-                source={require('../assets/javas.png')}
+                source={require('../Icons/javas.png')}
               />
             <View style={{ flexDirection: 'row' }}>
               <View style={{ flex: 1, marginRight: 10 }}>
@@ -64,7 +64,7 @@ export default class Course extends React.Component {
     <Text style={styles.paragraph}> Learn the basics of the command line interface of a Linux server: the terminal and shell (GNU Bash) </Text>
               <Image
                 style={styles.logo}
-                source={require('../assets/linux.png')}
+                source={require('../Icons/linux.png')}
               />
             <View style={{ flexDirection: 'row' }}>
               <View style={{ flex: 1, marginRight: 10 }}>
