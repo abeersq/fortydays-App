@@ -1,6 +1,6 @@
 import React from "react";
 import { TextInput, Button, StyleSheet, Text, View } from "react-native";
-
+import { Link } from "react-router-native";
 import { Auth } from "aws-amplify";
 
 export default class App extends React.Component {
@@ -20,8 +20,12 @@ export default class App extends React.Component {
       .then(user => {
         this.setState({ user });
         console.log("successful sign in!");
+        this.props.history.push("/menu");
       })
-      .catch(err => console.log("error signing in!: ", err));
+      .catch(err => {
+        console.log("error signing in!: ", err);
+        alert(err.message);
+      });
   }
 
   render() {
@@ -38,11 +42,11 @@ export default class App extends React.Component {
           secureTextEntry={true}
           placeholder="password"
         />
-        <Button
-          title="Sign In"
-          onPress={this.signIn.bind(this)}
-          style={styles.Button}
-        />
+        <Button title="Sign In" onPress={this.signIn.bind(this)} />
+        <Link to="/signup">
+          {/* <Button title="Sign Up" onPress={() => console.log("signup")} /> */}
+          <Text>signup </Text>
+        </Link>
       </View>
     );
   }
@@ -54,9 +58,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: "#2196F3",
     margin: 10
-  },
-  Button: {
-    width: 50
   },
   container: {
     flex: 1,

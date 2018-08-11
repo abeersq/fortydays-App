@@ -8,7 +8,8 @@ export default class App extends React.Component {
     password: "",
     phone_number: "",
     email: "",
-    gender: ""
+    gender: "",
+    confirmationCode: ""
   };
   onChangeText(key, value) {
     this.setState({
@@ -21,19 +22,26 @@ export default class App extends React.Component {
       password: this.state.password,
       attributes: {
         email: this.state.email,
-        phone_number: this.state.phone_number,
+        phone_number: "+966531981877",
         name: this.state.name,
         gender: "male"
       }
     })
       .then(() => console.log("successful sign up!"))
-      .catch(err => console.log("error signing up!: ", err));
+      .catch(err => {
+        console.log("error signing up!: ", err);
+        alert(err.message);
+      });
   }
   confirmSignUp() {
     Auth.confirmSignUp(this.state.email, this.state.confirmationCode)
-      .then(() => console.log("successful confirm sign up!"))
+      .then(() => {
+        console.log("successful confirm sign up!");
+        this.props.history.push("/");
+      })
       .catch(err => console.log("error confirming signing up!: ", err));
   }
+
   render() {
     return (
       <View style={styles.container}>
@@ -49,16 +57,12 @@ export default class App extends React.Component {
           placeholder="password"
         />
         <TextInput
-          onChangeText={value => this.onChangeText("phone_number", value)}
-          style={styles.input}
-          placeholder="phone"
-        />
-        <TextInput
           onChangeText={value => this.onChangeText("email", value)}
           style={styles.input}
           placeholder="email"
         />
         <Button title="Sign Up" onPress={this.signUp.bind(this)} />
+
         <TextInput
           onChangeText={value => this.onChangeText("confirmationCode", value)}
           style={styles.input}
