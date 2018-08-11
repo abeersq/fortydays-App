@@ -8,8 +8,8 @@ Amplify.configure(AWSConfig);
 
 import Signin from "./components/auth/SignIn";
 import Signup from "./components/auth/SignUp";
-// import Course from "./components/Course";
-import Menu from "./components/layout/Menu1";
+import Menu from "./components/layout/Nav";
+
 export default class App extends React.Component {
   render() {
     return (
@@ -19,9 +19,6 @@ export default class App extends React.Component {
             <Route exact path="/" component={Signin} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/menu" component={Menu} />
-            {/* <Route path="/login" component="SignIn" />
-            <Route path="/login" component="SignIn" />
-            <Route path="/login" component="SignIn" /> */}
           </View>
         </Switch>
       </NativeRouter>

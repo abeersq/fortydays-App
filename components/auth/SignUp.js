@@ -1,6 +1,8 @@
 import React from "react";
-import { TextInput, Button, StyleSheet, View } from "react-native";
-import Amplify, { Auth } from "aws-amplify";
+import { TextInput, StyleSheet, View } from "react-native";
+import { Button } from "react-native-elements";
+
+import { Auth } from "aws-amplify";
 
 export default class App extends React.Component {
   state = {
@@ -61,7 +63,11 @@ export default class App extends React.Component {
           style={styles.input}
           placeholder="email"
         />
-        <Button title="Sign Up" onPress={this.signUp.bind(this)} />
+        <Button
+          backgroundColor="green"
+          title="Sign Up"
+          onPress={this.signUp.bind(this)}
+        />
 
         <TextInput
           onChangeText={value => this.onChangeText("confirmationCode", value)}
@@ -71,6 +77,12 @@ export default class App extends React.Component {
         <Button
           title="Confirm Sign Up"
           onPress={this.confirmSignUp.bind(this)}
+        />
+        <Button
+          buttonStyle={{ marginTop: "5%" }}
+          title="sign in"
+          backgroundColor="blue"
+          onPress={() => this.props.history.push("/")}
         />
       </View>
     );

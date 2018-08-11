@@ -1,6 +1,6 @@
 import React from "react";
-import { TextInput, Button, StyleSheet, Text, View } from "react-native";
-import { Link } from "react-router-native";
+import { TextInput, StyleSheet, View } from "react-native";
+import { Button } from "react-native-elements";
 import { Auth } from "aws-amplify";
 
 export default class App extends React.Component {
@@ -34,19 +34,26 @@ export default class App extends React.Component {
         <TextInput
           onChangeText={value => this.onChangeText("username", value)}
           style={styles.input}
-          placeholder="username"
+          placeholder="البريد الالكتروني"
         />
         <TextInput
           onChangeText={value => this.onChangeText("password", value)}
           style={styles.input}
           secureTextEntry={true}
-          placeholder="password"
+          placeholder="كلمة المرور"
         />
-        <Button title="Sign In" onPress={this.signIn.bind(this)} />
-        <Link to="/signup">
-          {/* <Button title="Sign Up" onPress={() => console.log("signup")} /> */}
-          <Text>signup </Text>
-        </Link>
+        <Button
+          buttonStyle={{ marginTop: "5%" }}
+          backgroundColor="green"
+          title="Sign In"
+          onPress={this.signIn.bind(this)}
+        />
+        <Button
+          buttonStyle={{ marginTop: "5%" }}
+          backgroundColor="blue"
+          title="Sign Up"
+          onPress={() => this.props.history.push("/signup")}
+        />
       </View>
     );
   }
