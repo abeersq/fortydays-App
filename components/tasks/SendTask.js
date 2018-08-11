@@ -1,10 +1,7 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, TextInput } from 'react-native';
 import { Constants } from 'expo';
-import { StackNavigator } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation';
 import { Button } from 'react-native-elements';
-import { Input } from 'react-native-elements';
 
 
 export default class SendTask extends React.Component {
@@ -14,7 +11,6 @@ return(
  <Text
           style={{
             marginTop: '40%',
-            
             fontSize: 20,
             fontWeight: 'bold',
             textAlignVertical: 'center',
@@ -35,6 +31,14 @@ return(
       placeholder='رابط المهمه'
 
   />
+
+  <Button
+               style={{ marginTop: '20%' }}
+                  title=" تسليم "
+                  color="white"
+                  backgroundColor="blue"
+                  onPress={() =>{}}     
+                             /> 
   </View>
   
 );
